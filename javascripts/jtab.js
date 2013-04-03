@@ -549,11 +549,11 @@ Raphael.fn.margin_right = 10;
 
 Raphael.fn.current_offset = Raphael.fn.margin_left;
 
-Raphael.fn.string_spacing = 16;
+Raphael.fn.string_spacing = 12;
 Raphael.fn.strings_drawn = 6;
-Raphael.fn.fret_spacing = 16;
+Raphael.fn.fret_spacing = 14;
 Raphael.fn.frets_drawn = 4;
-Raphael.fn.note_radius = 7;
+Raphael.fn.note_radius = 6;
 
 Raphael.fn.fret_width = Raphael.fn.string_spacing * ( Raphael.fn.strings_drawn - 1 ); 
 Raphael.fn.fret_height = Raphael.fn.fret_spacing * (Raphael.fn.frets_drawn + 0.5); 
@@ -611,7 +611,7 @@ Raphael.fn.chord_fretboard = function ( position, chord_name ) {
   this.text( // chord name
     fret_left + 2.5 * this.string_spacing,
     this.margin_top - 20, 
-    chord_name).attr({stroke: this.tab_text_color, "font-size":"20px"});
+    chord_name).attr({stroke: this.tab_text_color, "font-size":"16px"});
 
   var stroke_width = position == 0 ? 3 : 0  // nut
   var chord_fretboard_path = this.path(this.svg_params(fret_left,this.margin_top,this.string_spacing * (this.strings_drawn - 1),0))
@@ -653,7 +653,7 @@ Raphael.fn.stroke = function () {
     var dx = this.string_spacing;
     var dy = 2 * this.fret_spacing;     
     this.path(this.svg_params(this.current_offset + this.margin_left, 
-                         this.margin_top + this.fret_spacing + dy,dx,-dy)).attr({stroke: this.tab_text_color, "stroke-width":4 })  
+                         this.margin_top + this.fret_spacing + dy,dx,-dy)).attr({stroke: this.tab_text_color, "stroke-width":2 })  
     
     this.increment_offset(  this.margin_left + dx + this.margin_right ); 
   }
@@ -724,7 +724,7 @@ Raphael.fn.chord_note = function (position, string_number, note) {
       this.margin_top + fret_dy, this.note_radius).attr({stroke: this.color, fill: this.color});
     if ( ! (note[1] === undefined) ) {
       this.text( fret_left + (string_number - 1) * this.string_spacing, 
-      this.margin_top + fret_dy, note[1] ).attr({stroke: this.fingering_text_color, "font-size":"12px"});
+      this.margin_top + fret_dy, note[1] ).attr({stroke: this.fingering_text_color, "font-size":"10px"});
     }
   }
   
@@ -754,9 +754,9 @@ Raphael.fn.tab_start = function () {
   this.tab_extend(width);
 
   //write TAB
-  this.text(this.current_offset + this.tab_char_width, this.tab_top + this.tab_spacing * 1.5, "T").attr({stroke: this.color, "font-size":"14px"});
-  this.text(this.current_offset + this.tab_char_width, this.tab_top + this.tab_spacing * 2.5, "A").attr({stroke: this.color, "font-size":"14px"});
-  this.text(this.current_offset + this.tab_char_width, this.tab_top + this.tab_spacing * 3.5, "B").attr({stroke: this.color, "font-size":"14px"});
+  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 1.5 + 1, "T").attr({stroke: this.color, "font-size":"14px"});
+  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 2.5, "A").attr({stroke: this.color, "font-size":"14px"});
+  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 3.5, "B").attr({stroke: this.color, "font-size":"14px"});
   this.increment_offset(width);
 
 }
@@ -767,7 +767,7 @@ Raphael.fn.draw_tab_note = function (string_number, token, left_offset) {
   // NB: internal string_number in tab counts from high to low
   this.text(this.current_offset + left_offset, 
           this.tab_top + this.tab_spacing * (string_number - 1), 
-          token).attr({stroke: this.color, "font-size":"16px"});
+          token).attr({stroke: this.color, "font-size":"14px"});
 }
 
 // gets string number from token $[1-6|EADGBe]
