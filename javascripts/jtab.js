@@ -551,7 +551,7 @@ Raphael.fn.current_offset = Raphael.fn.margin_left;
 
 Raphael.fn.string_spacing = 12;
 Raphael.fn.strings_drawn = 6;
-Raphael.fn.fret_spacing = 14;
+Raphael.fn.fret_spacing = 16;
 Raphael.fn.frets_drawn = 4;
 Raphael.fn.note_radius = 6;
 
