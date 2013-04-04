@@ -3,7 +3,9 @@
   height:218px;
 }
 .jtab.chordonly {
-  height:118px;
+  height:140px;
+  background: #EEE;
+  margin-top: 10px;
 }
 .jtab.tabonly {
   height:100px;
