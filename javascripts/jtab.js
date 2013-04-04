@@ -766,7 +766,7 @@ Raphael.fn.tab_start = function () {
 Raphael.fn.draw_tab_note = function (string_number, token, left_offset) {
   // NB: internal string_number in tab counts from high to low
   this.circle(this.current_offset + left_offset, 
-          this.tab_top + this.tab_spacing * (string_number - 1),10)
+          this.tab_top + this.tab_spacing * (string_number - 1),9).attr({stroke: this.color, fill: "#fff"});
   this.text(this.current_offset + left_offset, 
           this.tab_top + this.tab_spacing * (string_number - 1), 
           token).attr({stroke: this.color, "font-size":"14px"});
