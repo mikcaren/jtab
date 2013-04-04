@@ -650,12 +650,13 @@ Raphael.fn.stroke = function () {
 
     this.increment_offset(width);    
   } else if (this.has_chord) {
-    var dx = this.string_spacing;
-    var dy = 2 * this.fret_spacing;     
+    var dx = 1.5 * this.string_spacing;
+    var dy = 2 * this.fret_spacing;
+    this.increment_offset( 19 );     
     this.path(this.svg_params(this.current_offset + this.margin_left, 
                          this.margin_top + this.fret_spacing + dy,dx,-dy)).attr({stroke: this.tab_text_color, "stroke-width":2 })  
     
-    this.increment_offset(  this.margin_left + dx + this.margin_right ); 
+    this.increment_offset( 79 );
   }
 }
 
