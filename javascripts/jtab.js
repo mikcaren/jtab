@@ -755,8 +755,8 @@ Raphael.fn.tab_start = function () {
 
   //write TAB
   this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 1.5 + 1, "T").attr({stroke: this.color, "font-size":"14px"});
-  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 2.5, "A").attr({stroke: this.color, "font-size":"14px"});
-  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 3.5, "B").attr({stroke: this.color, "font-size":"14px"});
+  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 2.5 + 1, "A").attr({stroke: this.color, "font-size":"14px"});
+  this.text(this.current_offset + this.tab_char_width + 3, this.tab_top + this.tab_spacing * 3.5 + 1, "B").attr({stroke: this.color, "font-size":"14px"});
   this.increment_offset(width);
 
 }
@@ -765,6 +765,8 @@ Raphael.fn.tab_start = function () {
 // draw an individual note in the tab
 Raphael.fn.draw_tab_note = function (string_number, token, left_offset) {
   // NB: internal string_number in tab counts from high to low
+  this.circle(this.current_offset + left_offset, 
+          this.tab_top + this.tab_spacing * (string_number - 1),10)
   this.text(this.current_offset + left_offset, 
           this.tab_top + this.tab_spacing * (string_number - 1), 
           token).attr({stroke: this.color, "font-size":"14px"});
