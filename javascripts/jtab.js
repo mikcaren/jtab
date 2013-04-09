@@ -766,12 +766,15 @@ Raphael.fn.tab_start = function () {
 // draw an individual note in the tab
 Raphael.fn.draw_tab_note = function (string_number, token, left_offset) {
   // NB: internal string_number in tab counts from high to low
+  // draw rectangle if it is a note (note a space)
   // raphael.js for rect is c=paper.rect(x, y, width, height, radius)
-  this.rect(this.current_offset + left_offset - 11, 
-          (this.tab_top - 1 + this.tab_spacing * (string_number - 1)) - 7,22,14,2).attr({stroke: "#ddd", fill: "#ddd"});
+  if (token !== "") {
+     this.rect(this.current_offset + left_offset - 11, 
+          (this.tab_top - 1 + this.tab_spacing * (string_number - 1)) - 7,22,14,2).attr({stroke: "#fff", fill: "#fff"});
+  }
   this.text(this.current_offset + left_offset, 
           this.tab_top + this.tab_spacing * (string_number - 1), 
-          token).attr({stroke: this.color, "font-size":"14px"});
+          token).attr({stroke: this.color, "font-size":"13px"});
 }
 
 // gets string number from token $[1-6|EADGBe]
